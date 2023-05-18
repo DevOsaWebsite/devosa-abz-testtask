@@ -1,8 +1,7 @@
 
 import styles from '@/styles/users.module.scss';
 import React, { Suspense } from 'react';
-import { UserCard } from './UserCard';
-import { Button } from '@mui/material';
+import { Card } from './Card';
 
 async function getData(page: number = 1) {
 
@@ -42,9 +41,15 @@ export const UsersCardsLayout = async () => {
 			<Suspense fallback={<Fallback />}></Suspense>
 			<div>
 				{
-					!!users && users.map((user, index) => (
-						<article key={user?.id || index}>
-							<UserCard />
+					!!users && users.map((user: {
+						name: string;
+						photo: string;
+					}, index: number) => (
+						<article key={index}>
+							<Card
+								userName={user.name}
+								src={user.photo}
+							/>
 						</article>
 					))
 				}

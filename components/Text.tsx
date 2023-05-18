@@ -5,15 +5,15 @@ import styles from '@/styles/text.module.scss';
 
 interface Text {
 	children: React.ReactNode;
-	variant?: string;
+	type?: string;
 }
 
 export const Text: React.FC<Text> = (props) => {
-	const { children, variant = "p1" } = props;
+	const { children, type = "p1" } = props;
 
 	const textCN = classNames(
 		styles.root,
-		styles[variant]
+		styles[type]
 	)
 	return (
 		<p className={textCN}>{children}</p>

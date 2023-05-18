@@ -12,6 +12,7 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
 
 	return (
 		<div className={styles.root} data-tooltip={title}>
+			<div className={styles.root__popper}>{title}</div>
 			{children}
 		</div>
 	)

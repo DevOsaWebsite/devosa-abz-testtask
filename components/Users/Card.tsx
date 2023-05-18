@@ -21,9 +21,9 @@ interface CardUserImage {
 interface CardContentProps {
 	userName: string;
 }
-
-export const UserCard: React.FC<UserCardProps> = (props) => {
-	const { src, userName = "victor" } = props;
+const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere corporis cumque quos neque enim hic, qui, fugit reprehenderit, doloremque et perferendis fugiat accusantium? Corporis aut sapiente aspernatur maxime ipsam a!"
+export const Card: React.FC<UserCardProps> = (props) => {
+	const { src, userName = text } = props;
 	return (
 		<div className={styles.card}>
 			<CardUserImage src={src} userName={userName} />
@@ -55,7 +55,7 @@ const CardUserName: React.FC<CardUserName> = ({ userName }) => {
 
 	return (
 		<Tooltip title={userName}>
-			<Text>{userName}</Text>
+			<Text type="p2">{userName}</Text>
 		</Tooltip>
 	)
 }

@@ -2,16 +2,21 @@
 	position: relative;
 	display: inline-block;
 
-	&:hover,
-	 &::before{
-		content: attr(data-tooltip);
+	&__popper{
+		display: none;
 		position: absolute;
-		top: 21px;
-		left: 80px;
-
+		top: 0;
+		left: 0px;
+		border-radius: 4px;
 		background-color: var(--mui-palette-common-black);
 		color: var(--mui-palette-common-white);
 		padding: 3px 16px;
-		border-radius: 4px;
+		transform: translateY(-100%);
+		overflow: visible;
+		&:hover{
+			display: inline-block;
+		}
+		
+		
 	}
 }
