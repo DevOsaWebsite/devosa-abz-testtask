@@ -1,12 +1,12 @@
-import Image from 'next/image'
+import React from "react";
 import styles from '@/styles/page.module.scss'
+
+import { Hero } from '@/components/Hero'
 
 export default function Home() {
 	return (
-		<>
-			<h1>Hello vercel</h1>
-			<h1>Hello vercel</h1>
-			<h1>Hello vercel</h1>
-		</>
+		<React.Fragment>
+			<Hero />
+		</React.Fragment>
 	)
 }

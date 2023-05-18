@@ -50,7 +50,10 @@
 
 	--color-black: #000;
 	--color-white: #fff;
+
+	--hero-image-height: 500px;
 }
+
 
 
 
@@ -103,8 +106,8 @@ main {
 		max-width: var(--max-width-md);
 	}
 }
-@media (min-width: 2560.1px)  {
+@media (min-width: 1170px)  {
 	.container{
-		max-width: var(--max-width-xs);
+		max-width: var(--max-width-lg);
 	}
 }
