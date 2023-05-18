@@ -2,14 +2,15 @@ import React from "react";
 
 
 import { Hero } from '@/components/Hero'
-import { UsersCardsSection } from "@/components/UsersCardsSection";
+import { CardsSection } from "@/components/Users/CardsSection";
 
-export default function Home() {
+
+export default async function Home() {
 
 	return (
 		<React.Fragment>
 			<Hero />
-			<UsersCardsSection />
+			<CardsSection />
 		</React.Fragment>
 	)
 }

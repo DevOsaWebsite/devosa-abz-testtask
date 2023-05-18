@@ -11,14 +11,16 @@ interface SectionLayout {
 }
 export const SectionLayout: React.FC<SectionLayout> = (props) => {
 	const { heading = false, children } = props;
-	const rootCN = classNames(
-		styles.root,
+	const bodyCN = classNames(
+		styles.root__body,
 		'container'
 	)
 	return (
-		<section className={rootCN}>
-			{heading && <Heading>{heading}</Heading>}
-			{children}
+		<section className={styles.root}>
+			<div className={bodyCN}>
+				{heading && <Heading>{heading}</Heading>}
+				{children}
+			</div>
 		</section>
 	)
 }
