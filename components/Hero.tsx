@@ -4,48 +4,41 @@ import styles from '@/styles/hero.module.scss';
 
 import { BackgroundImage } from './BackgroundImage'
 import { backgroundImage } from "@/lib/background-image";
+import classNames from "classnames";
+import { CONTENT } from "@/lib/data";
+import { Heading } from "./Heading";
+import { Text } from "./Text";
+import { SignUp } from "./Login";
 
 const maxHeight = [500, 500, 650];
 
 export const Hero: React.FC = () => {
-
+	const heading = CONTENT.hero.heading;
+	const text = CONTENT.hero.text;
 	return (
 		<section className={styles.root}>
 			<BackgroundImage backgroundImageSrc={backgroundImage.lg}
 			/>
-			{/* <HeroContent /> */}
+			<HeroContent heading={heading} text={text} />
 		</section>
 	)
 }
+interface HeroContent {
+	heading: string;
+	text?: string;
+}
 
-// const HeroContent = () => {
-
-// 	return (
-// 		<Box position={"relative"} component={Container}
-// 			width={1}
-// 			height={1}
-// 			display={"flex"}
-// 			justifyContent={"center"}
-// 			alignItems={"center"}
-// 		>
-// 			<Stack spacing={2.625}
-// 				sx={{
-// 					maxWidth: 380,
-// 					textAlign: "center",
-// 					color: "background.white"
-// 				}}
-// 			>
-// 				<Typography variant="h1">
-// 					Test assignment for front-end developer
-// 				</Typography>
-// 				<Typography>
-// 					What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind.
-// 					They should also be excited to learn, as the world of Front-End Development keeps evolving.
-// 				</Typography>
-// 				<Box pt={1.375}>
-// 					<SignUp />
-// 				</Box>
-// 			</Stack>
-// 		</Box>
-// 	)
-// }
+const HeroContent: React.FC<HeroContent> = (props) => {
+	const { heading, text } = props;
+	const contentCN = classNames(
+		styles.root__content,
+		'container'
+	)
+	return (
+		<div className={contentCN}>
+			<Heading>{heading}</Heading>
+			<Text>{text}</Text>
+			<SignUp />
+		</div>
+	)
+}

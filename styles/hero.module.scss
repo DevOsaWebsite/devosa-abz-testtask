@@ -2,4 +2,28 @@
 	$root: &;
 	position: relative;
 	width: 100%;
+	height: var(--hero-image-height);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__content{
+		position: relative;
+		width: 100%;
+		text-align: center;
+		padding: 0 1rem;
+		color: var(--mui-palette-common-white);
+
+		h1{
+			margin-bottom: 21px;
+		}
+		p{
+			margin-bottom: 32px;
+		}
+		
+		@media (min-width: 412.1px) {
+			max-width: 412px !important;
+		}
+	}
 }

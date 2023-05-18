@@ -1,12 +1,18 @@
 import '@/styles/globals.scss'
 
 import { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
 import { TheHeader } from '@/components/TheHeader'
 import { Providers } from '@/components/Providers'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Nunito({
+	weight: ['400', '700'],
+	subsets: ['latin'],
+	display: 'swap',
+	style: 'normal',
+	fallback: ['Nunito', 'sans-serif'],
+})
 
 export const metadata: Metadata = {
 	title: 'devOsa ➡️ TesTask for ABZ.Agancy',
