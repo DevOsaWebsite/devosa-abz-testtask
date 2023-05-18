@@ -13,48 +13,44 @@ async function getData(page: number = 1) {
 			revalidate: 60
 		}
 	});
-
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
 	}
 	return res.json();
 }
 
-export const UsersCardsLayout = () => {
-	const [users, setUsers] = React.useState([]);
+export const UsersCardsLayout = async () => {
+	// const [users, setUsers] = React.useState([]);
 	const page = 2;
 
-	React.useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const data = await getData(page);
-				setUsers(data.users);
-			} catch (error) {
-				console.error(error);
-			}
-		}
-		fetchData();
-	}, [page])
-
-	console.log(users);
+	// React.useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		try {
+	// 			const data = await getData(page);
+	// 			setUsers(data.users);
+	// 		} catch (error) {
+	// 			console.error(error);
+	// 		}
+	// 	}
+	// 	fetchData();
+	// }, [page])
+	const data = await getData(page);
+	const { users } = await data;
+	console.log(data.users);
 	return (
 		<div className={styles.root} >
-			<Suspense fallback={<Fallback />}>
-				<div>
-					{
-						// !!usersList && usersList.map((userCard, index) => (
-						// 	<article key={userCard?.id || index}>
-						// 		<Suspense fallback={<Fallback />}>
-						// 			<UserCard />
-						// 		</Suspense>
-						// 	</article>
-						// ))
-					}
-				</div>
-			</Suspense>
-			<Button>Show more</Button>
+			<Suspense fallback={<Fallback />}></Suspense>
+			<div>
+				{
+					!!users && users.map((user, index) => (
+						<article key={user?.id || index}>
+							<UserCard />
+						</article>
+					))
+				}
+			</div>
 		</div >
 	)
 }
 
-const Fallback = () => <p>Loading feed...</p>
+const Fallback = () => <p style={{ color: "red" }}>Loading feed...</p>

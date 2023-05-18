@@ -1,5 +1,17 @@
 .root{
 
 	display: grid;
-	
+
+}
+
+.card{
+
+	&__image{
+		width: 70px;
+		height: 70px;
+
+		overflow: hidden;
+
+		border-radius: var(--card-image-borderRadius);
+	}
 }

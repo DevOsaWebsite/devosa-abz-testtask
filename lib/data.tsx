@@ -7,5 +7,10 @@ export const CONTENT = {
 	},
 	usersGetSection: {
 		heading: "Working with GET request"
+	},
+	users: {
+		card: {
+			defaultImage: "/photo-cover.svg"
+		}
 	}
 }
