@@ -17,25 +17,13 @@ async function getData(page: number = 1) {
 	}
 	return res.json();
 }
-type UsersCardsLayout = {
+type CardListLayout = {
 	
 }
 
-export const UsersCardsLayout = async (): Promise<React.ReactElement<any, string | JSXElementConstructor<any>>> => {
-	// const [users, setUsers] = React.useState([]);
-	const page = 2;
+export const CardListLayout = async (): Promise<React.ReactElement<any, string | JSXElementConstructor<any>>> => {
 
-	// React.useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const data = await getData(page);
-	// 			setUsers(data.users);
-	// 		} catch (error) {
-	// 			console.error(error);
-	// 		}
-	// 	}
-	// 	fetchData();
-	// }, [page])
+	const page = 2;
 	const data = await getData(page);
 	const { users } = await data;
 	console.log(data.users);

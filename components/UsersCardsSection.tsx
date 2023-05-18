@@ -1,7 +1,7 @@
 import React from "react";
 import { CONTENT } from "@/lib/data"
 import { SectionLayout } from "./design"
-import { UsersCardsLayout } from "./Users/UsersCardsLayout";
+import { CardListLayout } from "./Users/CardListLayout";
 
 type UsersCardsSection = {
 	usersList?: {};
@@ -13,7 +13,7 @@ export const UsersCardsSection = () => {
 	return (
 		<SectionLayout
 			heading={heading} >
-			<UsersCardsLayout />
+			<CardListLayout />
 		</SectionLayout>
 	)
 }
