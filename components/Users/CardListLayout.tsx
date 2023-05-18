@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 import { Card } from './Card';
 
 type CardListLayout = {
-	users: []
+	users: never[]
 }
 
 
