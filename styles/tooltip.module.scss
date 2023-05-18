@@ -1,0 +1,17 @@
+.root{
+	position: relative;
+	display: inline-block;
+
+	&:hover,
+	 &::before{
+		content: attr(data-tooltip);
+		position: absolute;
+		top: 21px;
+		left: 80px;
+
+		background-color: var(--mui-palette-common-black);
+		color: var(--mui-palette-common-white);
+		padding: 3px 16px;
+		border-radius: 4px;
+	}
+}

@@ -16,8 +16,6 @@ export const BackgroundImage: React.FC<BackgroundImage> = (props) => {
 			<Image
 				src={backgroundImageSrc}
 				priority={true}
-				// width={1170}
-				// height={650}
 				alt="3"
 				className={styles.root__image}
 			/>

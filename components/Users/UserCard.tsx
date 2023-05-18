@@ -1,41 +1,62 @@
+import React from 'react';
 
-import { CONTENT } from '@/lib/data';
+import { UserImage } from '@/components/design/Images';
+
 import styles from '@/styles/users.module.scss';
-import Image from 'next/image';
+import { CONTENT } from '@/lib/data';
+import { Text } from '../Text';
+import { Tooltip } from '../design/Tooltip';
 
-type UserCard = {
+type UserCardProps = CardUserImage & CardUserName;
 
+interface CardUserName {
+	userName: string;
 }
 
-export const UserCard: React.FC<UserCard> = (props) => {
-	const { } = props;
+interface CardUserImage {
+	src: string;
+	userName: string;
+}
+
+interface CardContentProps {
+	userName: string;
+}
+
+export const UserCard: React.FC<UserCardProps> = (props) => {
+	const { src, userName = "victor" } = props;
 	return (
 		<div className={styles.card}>
-			<CardImage />
-			<CardContent />
+			<CardUserImage src={src} userName={userName} />
+			<CardContent userName={userName} />
 		</div>
 	)
 }
 
-const CardImage = () => {
-
+const CardUserImage: React.FC<CardUserImage> = ({ src, userName }) => {
 	return (
 		<div className={styles.card__image}>
-			<Image
-				src={CONTENT.users.card.defaultImage}
-				alt={""}
-				width={70}
-				height={70}
+			<UserImage
+				src={src || CONTENT.users.card.defaultImage}
+				alt={userName}
 			/>
 		</div>
 	)
 }
 
-const CardContent = () => {
-
+const CardContent: React.FC<CardContentProps> = ({ userName }) => {
 	return (
 		<div>
-			content
+			<CardUserName userName={userName} />
 		</div>
 	)
 }
+
+const CardUserName: React.FC<CardUserName> = ({ userName }) => {
+
+	return (
+		<Tooltip title={userName}>
+			<Text>{userName}</Text>
+		</Tooltip>
+	)
+}
+
