@@ -9,7 +9,6 @@ export default function Home() {
 	return (
 		<>
 			<Hero />
-			{/* @ts-expect-error Async Server Component */}
 			<CardsSection />
 		</>
 	);
