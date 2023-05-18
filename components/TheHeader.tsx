@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 
 import styles from '@/styles/footer.module.scss'
@@ -6,7 +5,7 @@ import classNames from 'classnames';
 
 import { Logo } from './Logo';
 import { Users, SignUp } from '@/components/Login';
-import { Container } from '@mui/material';
+
 
 
 export const TheHeader: React.FC = () => {
@@ -14,7 +13,7 @@ export const TheHeader: React.FC = () => {
 		<footer className={styles.root}>
 			<div className={styles.root__body}>
 				<TheHeaderToolbar color="black" />
-				<TheHeaderToolbar container>
+				<TheHeaderToolbar container >
 					<Logo />
 					<TheHeaderActions />
 				</TheHeaderToolbar>
@@ -38,11 +37,9 @@ const TheHeaderToolbar: React.FC<TheHeaderToolbar> = (props) => {
 		color && styles[color]
 	)
 	return (
-		// <Container>
-			<div className={toolbarCN}>
-				{children}
-			</div>
-		// </Container>
+		<div className={toolbarCN}>
+			{children}
+		</div>
 	)
 }
 

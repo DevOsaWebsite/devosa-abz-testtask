@@ -16,7 +16,8 @@ export const theme = extendTheme({
 			variants: [
 				{
 					props: { variant: "contained" },
-					style: {
+					style: ({ theme }) => ({
+						textTransform: "none",
 						borderRadius: 80,
 						minWidth: 100,
 						paddingTop: 4,
@@ -27,10 +28,22 @@ export const theme = extendTheme({
 						":disabled": {
 							backgroundColor: "rgba(180, 180, 180, 1)",
 							color: "rgba(255, 255, 255, 0.87)"
+						},
+						[theme.breakpoints.down("sm")]: {
+							minWidth: 50
 						}
-					}
+					})
 				}
 			]
+		}
+	},
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 340,
+			md: 768,
+			lg: 1024,
+			xl: 1170,
 		}
 	}
 })
