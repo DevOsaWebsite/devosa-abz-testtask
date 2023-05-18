@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '@/styles/footer.module.scss'
 import classNames from 'classnames';
 import { Logo } from './Logo';
+import { SignUp } from './Login/Users';
 
 
 export const TheHeader: React.FC = () => {
@@ -11,7 +12,7 @@ export const TheHeader: React.FC = () => {
 				<TheHeaderToolbar color="black" />
 				<TheHeaderToolbar container>
 					<Logo />
-					actions
+					<SignUp />
 				</TheHeaderToolbar>
 			</div>
 		</footer>
@@ -19,7 +20,7 @@ export const TheHeader: React.FC = () => {
 };
 
 interface TheHeaderToolbar {
-	children?: any;
+	children?: React.ReactNode;
 	color?: string;
 	container?: Boolean;
 }
