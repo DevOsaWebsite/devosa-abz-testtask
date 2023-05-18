@@ -1,12 +1,15 @@
 import React from "react";
-import styles from '@/styles/page.module.scss'
+
 
 import { Hero } from '@/components/Hero'
+import { UsersCardsSection } from "@/components/UsersCardsSection";
 
 export default function Home() {
+
 	return (
 		<React.Fragment>
 			<Hero />
+			<UsersCardsSection />
 		</React.Fragment>
 	)
 }

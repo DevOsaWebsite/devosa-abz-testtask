@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
+	env: {
+		USERS_API_URL: "https://frontend-test-assignment-api.abz.agenc/api/v1/users/",
+	},
 	images: {
 		formats: ['image/avif', 'image/webp'],
 		minimumCacheTTL: 60,
