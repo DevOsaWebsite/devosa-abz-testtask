@@ -1,9 +1,10 @@
-import React from "react";
+
+import React, { ReactNode } from "react";
 import { CONTENT } from "@/lib/data"
 import { SectionLayout } from "../design"
 import { CardListLayout } from "./CardListLayout";
 
-async function getUsers(page: number = 1) {
+const getUsers = async (page: number = 1) => {
 
 	const URL = `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`;
 
@@ -18,14 +19,13 @@ async function getUsers(page: number = 1) {
 	return res.json();
 }
 
-export const CardsSection = async () => {
+export const CardsSection = async (): Promise<JSX.Element> => {
 	const heading = CONTENT.usersGetSection.heading;
 	const usersData = await getUsers(13);
 	const users: [] = usersData.users;
 	return (
-		<SectionLayout
-			heading={heading} >
+		<SectionLayout heading={heading}>
 			<CardListLayout users={users} />
 		</SectionLayout>
-	)
-}
+	);
+};

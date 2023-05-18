@@ -11,7 +11,7 @@ type CardListLayout = {
 export const CardListLayout: React.FC<CardListLayout> = ({ users }) => {
 
 	return (
-		<React.Fragment>
+		<>
 			<div className={styles.root} >
 				<Suspense fallback={<Fallback />}></Suspense>
 				<div>
@@ -27,7 +27,7 @@ export const CardListLayout: React.FC<CardListLayout> = ({ users }) => {
 					}
 				</div>
 			</div >
-		</React.Fragment>
+		</>
 	)
 }
 

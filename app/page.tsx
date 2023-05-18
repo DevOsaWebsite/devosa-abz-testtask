@@ -3,14 +3,12 @@ import React from "react";
 
 import { Hero } from '@/components/Hero'
 import { CardsSection } from "@/components/Users/CardsSection";
-
-
-export default async function Home() {
-
+{/* @ts-expect-error Async Server Component */ }
+export default function Home() {
 	return (
-		<React.Fragment>
+		<>
 			<Hero />
 			<CardsSection />
-		</React.Fragment>
-	)
+		</>
+	);
 }
