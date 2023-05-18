@@ -1,6 +1,6 @@
 
 import styles from '@/styles/users.module.scss';
-import React, { Suspense } from 'react';
+import React, { JSXElementConstructor, Suspense } from 'react';
 import { Card } from './Card';
 
 async function getData(page: number = 1) {
@@ -17,8 +17,11 @@ async function getData(page: number = 1) {
 	}
 	return res.json();
 }
+type UsersCardsLayout = {
+	
+}
 
-export const UsersCardsLayout = async () => {
+export const UsersCardsLayout = async (): Promise<React.ReactElement<any, string | JSXElementConstructor<any>>> => {
 	// const [users, setUsers] = React.useState([]);
 	const page = 2;
 
