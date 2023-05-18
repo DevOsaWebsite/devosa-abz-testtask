@@ -1,14 +1,10 @@
-'use client'
 import React from "react";
+import { Button } from "@/components/design";
 
-import { Button } from "@mui/material";
 
-export const SignUp = () => {
+export const Users = () => {
 
 	return (
-		<Button variant="contained" disableElevation
-		>
-			Sign up
-		</Button>
+		<Button>Users</Button>
 	)
 }

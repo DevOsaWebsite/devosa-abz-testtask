@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '@/styles/footer.module.scss'
 import classNames from 'classnames';
 import { Logo } from './Logo';
-import { SignUp } from './Login/Users';
+import { Users, SignUp } from '@/components/Login';
 
 
 export const TheHeader: React.FC = () => {
@@ -12,7 +12,7 @@ export const TheHeader: React.FC = () => {
 				<TheHeaderToolbar color="black" />
 				<TheHeaderToolbar container>
 					<Logo />
-					<SignUp />
+					<TheHeaderActions />
 				</TheHeaderToolbar>
 			</div>
 		</footer>
@@ -36,6 +36,16 @@ const TheHeaderToolbar: React.FC<TheHeaderToolbar> = (props) => {
 	return (
 		<div className={toolbarCN}>
 			{children}
+		</div>
+	)
+}
+
+const TheHeaderActions: React.FC = () => {
+
+	return (
+		<div className={styles.actions}>
+			<Users />
+			<SignUp />
 		</div>
 	)
 }

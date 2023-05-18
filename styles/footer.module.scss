@@ -16,13 +16,17 @@
 			align-items: center;
 			justify-content: space-between;
 
-			column-gap: 10px;
+			gap: 10px;
 			
 			background-color: var(--mui-palette-common-white);
 
 			&.black{
 				background-color: var(--mui-palette-common-black);
 			}
+		}
+		& .actions{
+			display: flex;
+			gap: 10px;
 		}
 	}
 }
