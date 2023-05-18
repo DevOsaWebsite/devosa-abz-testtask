@@ -1,4 +1,4 @@
-import styles from '@/styles/footer.modules.scss'
+import styles from '@/styles/footer.module.scss'
 
 export const TheHeader = () => {
 	return (
