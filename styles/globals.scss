@@ -2,6 +2,11 @@
 
 :root {
   --max-width: 328px;
+  --max-width-sx: 704px;
+  --max-width-sm: 704px;
+  --max-width-md: 904px;
+  --max-width-lg: 1170px;
+
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
@@ -80,5 +85,26 @@ main {
 .container {
 	width: 100%;
 	max-width: var(--max-width);
-	
+}
+
+@media (min-width: 360.1px)  {
+	.container{
+		max-width: var(--max-width-sx);
+	}
+}
+
+@media (min-width: 768.1px)  {
+	.container{
+		max-width: var(--max-width-sm);
+	}
+}
+@media (min-width: 1024.1px)  {
+	.container{
+		max-width: var(--max-width-md);
+	}
+}
+@media (min-width: 2560.1px)  {
+	.container{
+		max-width: var(--max-width-xs);
+	}
 }
