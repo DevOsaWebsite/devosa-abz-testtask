@@ -1,62 +1,31 @@
 import React from 'react';
 
-import { UserImage } from '@/components/design/Images';
-
 import styles from '@/styles/users.module.scss';
-import { CONTENT } from '@/lib/data';
+
+import { CardUserImage } from './CardUserImage';
+import { CardUserContent } from './CardUserContent';
 import { Text } from '../Text';
-import { Tooltip } from '../design/Tooltip';
 
-type UserCardProps = CardUserImage & CardUserName;
 
-interface CardUserName {
-	userName: string;
-}
-
-interface CardUserImage {
-	src: string;
-	userName: string;
-}
-
-interface CardContentProps {
-	userName: string;
-}
-const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere corporis cumque quos neque enim hic, qui, fugit reprehenderit, doloremque et perferendis fugiat accusantium? Corporis aut sapiente aspernatur maxime ipsam a!"
-export const Card: React.FC<UserCardProps> = (props) => {
-	const { src, userName = text } = props;
+export const Card: React.FC<UserCard> = (props) => {
+	const { photo, name, email, phone, position } = props;
 	return (
 		<div className={styles.card}>
-			<CardUserImage src={src} userName={userName} />
-			<CardContent userName={userName} />
+			<CardUserImage photo={photo} name={name} />
+			<div className={styles.card__text}>
+				<CardUserData text={position} />
+			</div>	
+			<div className={styles.card__text}>
+				<CardUserData text={position} />
+				<CardUserData text={phone} />
+				<CardUserData text={email} />
+			</div>
 		</div>
 	)
 }
-
-const CardUserImage: React.FC<CardUserImage> = ({ src, userName }) => {
-	return (
-		<div className={styles.card__image}>
-			<UserImage
-				src={src || CONTENT.users.card.defaultImage}
-				alt={userName}
-			/>
-		</div>
-	)
-}
-
-const CardContent: React.FC<CardContentProps> = ({ userName }) => {
-	return (
-		<div>
-			<CardUserName userName={userName} />
-		</div>
-	)
-}
-
-const CardUserName: React.FC<CardUserName> = ({ userName }) => {
+const CardUserData: React.FC<CardUserData> = ({ text }) => {
 
 	return (
-		<Tooltip title={userName}>
-			<Text type="p2">{userName}</Text>
-		</Tooltip>
+		<Text type="p2">{text}</Text>
 	)
 }
-

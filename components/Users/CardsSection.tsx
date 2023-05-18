@@ -1,5 +1,5 @@
 
-import React, { ReactNode } from "react";
+import React from "react";
 import { CONTENT } from "@/lib/data"
 import { SectionLayout } from "../design"
 import { CardListLayout } from "./CardListLayout";
@@ -21,8 +21,10 @@ const getUsers = async (page: number = 1) => {
 
 export const CardsSection = async () => {
 	const heading = CONTENT.usersGetSection.heading;
+
 	const usersData = await getUsers(13);
 	const users: [] = usersData.users;
+
 	return (
 		<SectionLayout heading={heading}>
 			<CardListLayout users={users} />

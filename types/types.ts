@@ -1,9 +1,25 @@
-type UserCard = {
-	id: string;
+type UserCard = UserCardImage & UserCardPhone & UserCardPosition & UserCardEmail & {
+	id?: string;
+	registration_timestamp?: number;
+}
+type UserCardName = {
 	name: string;
-	email: string;
-	position: string;
-	position_id: string;
-	registration_timestamp: number;
+}
+type UserCardImage = UserCardName & {
 	photo: string;
+}
+type UserCardPhone = {
+	phone: string
+}
+type UserCardPosition = {
+	position: string;
+	position_id?: string;
+}
+type UserCardEmail = {
+	email: string;
+}
+type CardContentProps = UserCardName & UserCardPhone & UserCardPosition & UserCardEmail;
+
+type CardUserData = {
+	text: string
 }
