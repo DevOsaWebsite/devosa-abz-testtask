@@ -1,6 +1,6 @@
 
 import styles from '@/styles/users.module.scss';
-import React, { JSXElementConstructor, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Card } from './Card';
 
 async function getData(page: number = 1) {
@@ -18,34 +18,39 @@ async function getData(page: number = 1) {
 	return res.json();
 }
 type CardListLayout = {
-	
+	users: {
+		name: string;
+		photo: string;
+	}
 }
 
-export const CardListLayout = async (): Promise<JSX.Element> => {
+export const CardListLayout = async () => {
 
 	const page = 2;
 	const data = await getData(page);
 	const { users } = await data;
 	console.log(data.users);
 	return (
-		<div className={styles.root} >
-			<Suspense fallback={<Fallback />}></Suspense>
-			<div>
-				{
-					!!users && users.map((user: {
-						name: string;
-						photo: string;
-					}, index: number) => (
-						<article key={index}>
-							<Card
-								userName={user.name}
-								src={user.photo}
-							/>
-						</article>
-					))
-				}
-			</div>
-		</div >
+		<React.Fragment>
+			<div className={styles.root} >
+				<Suspense fallback={<Fallback />}></Suspense>
+				<div>
+					{
+						!!users && users.map((user: {
+							name: string;
+							photo: string;
+						}, index: number) => (
+							<article key={index}>
+								<Card
+									userName={user.name}
+									src={user.photo}
+								/>
+							</article>
+						))
+					}
+				</div>
+			</div >
+		</React.Fragment>
 	)
 }
 
