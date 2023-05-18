@@ -19,7 +19,7 @@ const getUsers = async (page: number = 1) => {
 	return res.json();
 }
 
-export const CardsSection = async (): Promise<JSX.Element> => {
+export const CardsSection = async () => {
 	const heading = CONTENT.usersGetSection.heading;
 	const usersData = await getUsers(13);
 	const users: [] = usersData.users;
