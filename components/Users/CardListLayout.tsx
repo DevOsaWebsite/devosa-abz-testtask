@@ -21,7 +21,7 @@ type CardListLayout = {
 	
 }
 
-export const CardListLayout = async (): Promise<React.ReactElement<any, string | JSXElementConstructor<any>>> => {
+export const CardListLayout = async (): Promise<JSX.Element> => {
 
 	const page = 2;
 	const data = await getData(page);
