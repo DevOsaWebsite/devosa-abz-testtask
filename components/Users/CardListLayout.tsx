@@ -1,9 +1,6 @@
-'use client';
 import styles from '@/lib/styles/users.module.scss';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Card } from './Card';
-import { getUsers } from '@/lib/users';
-import { Fallback } from '../design/Fallback';
 
 type CardListLayout = {
   users: never[];

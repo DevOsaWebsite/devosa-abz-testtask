@@ -1,1 +1,5 @@
-export const Fallback = () => <p style={{ color: 'red' }}>Loading feed...</p>;
+import { CircularProgress } from "@mui/material";
+
+const Fallback = () => <CircularProgress color="secondary" />;
+ 
+export default Fallback;

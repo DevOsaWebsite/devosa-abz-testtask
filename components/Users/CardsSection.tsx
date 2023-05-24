@@ -3,8 +3,10 @@ import React from 'react';
 import { CONTENT } from '@/lib/data';
 import { Button, SectionLayout } from '../design';
 import { CardListLayout } from './CardListLayout';
-import { Fallback } from '../design/Fallback';
 import { getUsers } from '@/lib/users';
+import dynamic from 'next/dynamic';
+
+const DynamicFallback = dynamic(() => import('../design/Fallback'));
 
 export const CardsSection = () => {
   const heading = CONTENT.usersGetSection.heading;
@@ -34,7 +36,7 @@ export const CardsSection = () => {
   return (
     <SectionLayout heading={heading}>
       <CardListLayout users={users} />
-      {loading && <Fallback />}
+      {loading && <DynamicFallback />}
       {!!nextUrl && <Button onClick={handleClick}>Show more</Button>}
     </SectionLayout>
   );
