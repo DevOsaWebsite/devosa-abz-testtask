@@ -4,18 +4,19 @@ const nextFetchConfig: RequestInit = {
   },
 };
 
-export async function getUsers(page: string = '1', count: string = '6') {
+export async function getUsers(page: number = 1, count: string = '6') {
   const api_url = process.env.API_URL;
   const path = process.env.API_PATH_USERS;
   const url = api_url + path + `?page=${page}&count=${count}`;
   try {
     const res = await fetch(url, nextFetchConfig);
-
+    const data = await res.json();
     const {
       users,
+      page,
       links: { next_url },
-    } = await res.json();
-    if (res.ok) return { users, next_url };
+    } = data;
+    if (res.ok) return { users, page, next_url };
   } catch (error) {
     console.error(error);
   }
