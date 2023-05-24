@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Image from 'next/image';
 import React from 'react';
 
@@ -8,9 +8,9 @@ type UserImage = {
 };
 
 export const UserImage: React.FC<UserImage> = props => {
-	const { src, alt } = props;
-	const [def, setDef] = React.useState(src);
-	const onError = () => setDef('/photo-cover.svg');
+  const { src, alt } = props;
+  const [def, setDef] = React.useState(src);
+  const onError = () => setDef('/photo-cover.svg');
   return (
     <Image
       src={def}
