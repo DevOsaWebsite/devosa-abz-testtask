@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from '@/styles/hero.module.scss';
+import styles from '@/lib/styles/hero.module.scss';
 
 import { BackgroundImage } from './BackgroundImage'
 import { backgroundImage } from "@/lib/background-image";

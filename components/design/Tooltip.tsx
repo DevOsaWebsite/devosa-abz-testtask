@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from '@/styles/tooltip.module.scss';
+import styles from '@/lib/styles/tooltip.module.scss';
 
 type TooltipProps = {
 	children: React.ReactNode;

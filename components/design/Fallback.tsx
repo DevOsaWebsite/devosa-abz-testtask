@@ -1,0 +1,1 @@
+export const Fallback = () => <p style={{ color: 'red' }}>Loading feed...</p>;

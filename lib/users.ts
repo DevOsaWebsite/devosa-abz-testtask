@@ -1,0 +1,34 @@
+const nextFetchConfig: RequestInit = {
+  next: {
+    revalidate: 10,
+  },
+};
+
+export async function getUsers(page: string = '1', count: string = '6') {
+  const api_url = process.env.API_URL;
+  const path = process.env.API_PATH_USERS;
+  const url = api_url + path + `?page=${page}&count=${count}`;
+  try {
+    const res = await fetch(url, nextFetchConfig);
+    const {
+      users,
+      links: { next_url },
+    } = await res.json();
+    if (res.ok) return { users, next_url };
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getPositions() {
+  const api_url = process.env.API_URL;
+  const path = process.env.API_PATH_POSITION;
+  const url = api_url + path;
+
+  const res = await fetch(url, nextFetchConfig);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+}

@@ -1,21 +1,26 @@
-
-import Image from "next/image"
-import React from "react";
+"use client"
+import Image from 'next/image';
+import React from 'react';
 
 type UserImage = {
-	src: string;
-	alt: string;
-}
+  src: string;
+  alt: string;
+};
 
-export const UserImage: React.FC<UserImage> = (props) => {
+export const UserImage: React.FC<UserImage> = props => {
 	const { src, alt } = props;
-	return (
-		<Image
-			src={src}
-			alt={alt}
-			width={70}
-			height={70}
-			className="image"
-		/>
-	)
-}
+	const [def, setDef] = React.useState(src);
+	const onError = () => setDef('/photo-cover.svg');
+  return (
+    <Image
+      src={def}
+      alt={alt}
+      width={70}
+      height={70}
+      className="image"
+      placeholder={'blur'}
+      blurDataURL="/photo-cover.svg"
+      onError={onError}
+    />
+  );
+};

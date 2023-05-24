@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '@/styles/users.module.scss';
+import styles from '@/lib/styles/users.module.scss';
 
 import { CardUserImage } from './CardUserImage';
 import { CardUserContent } from './CardUserContent';

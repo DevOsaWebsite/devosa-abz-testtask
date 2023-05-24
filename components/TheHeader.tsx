@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '@/styles/footer.module.scss'
+import styles from '@/lib/styles/footer.module.scss'
 import classNames from 'classnames';
 
 import { Logo } from './Logo';

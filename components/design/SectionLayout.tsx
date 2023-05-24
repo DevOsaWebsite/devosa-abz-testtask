@@ -3,7 +3,7 @@ import React from "react";
 import { Heading } from "../Heading"
 import classNames from "classnames";
 
-import styles from '@/styles/sectionLayout.module.scss';
+import styles from '@/lib/styles/sectionLayout.module.scss';
 
 interface SectionLayout {
 	children: React.ReactNode;

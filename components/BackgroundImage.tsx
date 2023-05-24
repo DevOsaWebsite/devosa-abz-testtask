@@ -1,6 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import styles from '@/styles/backgroundImage.module.scss'
+import styles from '@/lib/styles/backgroundImage.module.scss'
 
 
 interface BackgroundImage {
