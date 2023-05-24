@@ -25,8 +25,8 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverActions: true,
+    serverActions: false,
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

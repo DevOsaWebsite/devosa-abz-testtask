@@ -21,10 +21,12 @@ export const CardsSection = () => {
   React.useEffect(() => {
     setLoading(true);
     async function fetchData() {
-      const response = await getUsers(page);
-      setUsers([...users, ...response?.users]);
-      setNexUrl(response?.next_url);
-      setLoading(false);
+      try {
+        const response = await getUsers(page);
+        setUsers([...users, ...response?.users]);
+        setNexUrl(response?.next_url);
+        setLoading(false);
+      } catch (error) {}
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,7 +39,7 @@ export const CardsSection = () => {
     <SectionLayout heading={heading}>
       <CardListLayout users={users} />
       {loading && <DynamicFallback />}
-      {!!nextUrl && <Button onClick={handleClick}>Show more</Button>}
+      {!!nextUrl && <Button onClick={handleClick}>{"Show more"}</Button>}
     </SectionLayout>
   );
 };

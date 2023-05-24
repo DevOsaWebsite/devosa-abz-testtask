@@ -9,8 +9,9 @@ type UserImage = {
 
 export const UserImage: React.FC<UserImage> = props => {
   const { src, alt } = props;
+  const blur = '/photo-cover.svg';
   const [def, setDef] = React.useState(src);
-  const onError = () => setDef('/photo-cover.svg');
+  const onError = () => setDef(blur);
   return (
     <Image
       src={def}
@@ -19,7 +20,7 @@ export const UserImage: React.FC<UserImage> = props => {
       height={70}
       className="image"
       placeholder={'blur'}
-      blurDataURL="/photo-cover.svg"
+      blurDataURL={blur}
       onError={onError}
     />
   );

@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '@/lib/styles/users.module.scss';
 
 import { CardUserImage } from './CardUserImage';
-import { CardUserContent } from './CardUserContent';
 import { Text } from '../Text';
 
 
