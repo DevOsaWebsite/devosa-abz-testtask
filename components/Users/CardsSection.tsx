@@ -15,7 +15,7 @@ export const CardsSection = () => {
   const [nextUrl, setNexUrl] = React.useState<string | null>();
 
   const [page, setPage] = React.useState('1');
-
+  console.log(nextUrl);
   React.useEffect(() => {
     setLoading(true);
     async function fetchData() {
@@ -35,7 +35,7 @@ export const CardsSection = () => {
     <SectionLayout heading={heading}>
       <CardListLayout users={users} />
       {loading && <Fallback />}
-      {nextUrl && <Button onClick={handleClick}>Show more</Button>}
+      {!!nextUrl && <Button onClick={handleClick}>Show more</Button>}
     </SectionLayout>
   );
 };

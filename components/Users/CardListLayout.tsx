@@ -14,8 +14,8 @@ export const CardListLayout = ({ users }: { users: any[] | false }) => {
     <>
       <div className={styles.root}>
         {!!users &&
-          users.map((user: UserCard) => (
-            <article key={user.id}>
+          users.map((user: UserCard, index: number) => (
+            <article key={index}>
               <Card
                 name={user.name}
                 phone={user.phone}

@@ -10,6 +10,7 @@ export async function getUsers(page: string = '1', count: string = '6') {
   const url = api_url + path + `?page=${page}&count=${count}`;
   try {
     const res = await fetch(url, nextFetchConfig);
+
     const {
       users,
       links: { next_url },
