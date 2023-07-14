@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { url } from '../(utils)/constants';
+import { url } from '../../(utils)/constants';
 
 export async function GET() {
   try {
@@ -7,8 +7,9 @@ export async function GET() {
 
     if (response.ok && response.status === 200) {
       const data = await response.json();
+      
       const { positions } = await data;
-      if (response.ok && response.status === 200) return NextResponse.json({ positions });
+      return NextResponse.json({ positions });
     }
   } catch (message) {
     return NextResponse.json({

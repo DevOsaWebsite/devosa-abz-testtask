@@ -30,4 +30,13 @@ export async function GET(request: Request) {
     });
   }
 }
-export async function POST(request: Request) {}
+
+export async function POST(request: Request) {
+  try {
+    const data: UserPostInit = await request.json();
+
+    return NextResponse.json(data);
+  } catch (message) {
+    return NextResponse.json({ status: 'error', message });
+  }
+}

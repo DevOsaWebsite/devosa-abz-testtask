@@ -5,6 +5,7 @@ const nextConfig = {
     API_URL: 'https://frontend-test-assignment-api.abz.agency/api/v1',
     API_PATH_POSITION: '/positions',
     API_PATH_USERS: '/users',
+    API_PATH_TOKEN: '/token',
   },
   images: {
     formats: ['image/avif', 'image/webp'],

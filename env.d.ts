@@ -4,5 +4,6 @@ namespace NodeJS{
     API_URL: string;
     API_PATH_POSITION: string;
     API_PATH_USERS: string;
+    API_PATH_TOKEN: string;
   }
 }
