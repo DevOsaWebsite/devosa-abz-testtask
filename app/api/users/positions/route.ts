@@ -1,23 +1,19 @@
 import { NextResponse } from 'next/server';
+import { url } from '../(utils)/constants';
 
-export async function GET(request: Request) {
-  const api_url = process.env.API_URL;
-  const path = process.env.API_PATH_POSITION;
-  const url = api_url + path;
+export async function GET() {
   try {
     const response = await fetch(url);
-    console.log(response);
 
     if (response.ok && response.status === 200) {
       const data = await response.json();
       const { positions } = await data;
       if (response.ok && response.status === 200) return NextResponse.json({ positions });
     }
-  } catch (error) {
-    console.error(error);
+  } catch (message) {
     return NextResponse.json({
       success: false,
-      message: `${error}`,
+      message,
     });
   }
 }

@@ -1,10 +1,10 @@
-import useSWR from 'swr';
-import { getUsers } from '../users';
+import useSWR, { useSWRConfig } from 'swr';
 
+export const useUsers = (page: number) => {
+  const { fallback } = useSWRConfig();
+  console.log(fallback);
 
-
-export const useUsers = (page: number = 1) => {
-  const { data, error, isLoading } = useSWR(`${page}`, getUsers);
+  const { data, error, isLoading } = useSWR(`/api/users?page=${page}`);
 
   return {
     data,

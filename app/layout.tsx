@@ -4,7 +4,8 @@ import { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 
 import { TheHeader } from '@/components/TheHeader';
-import { Providers } from '@/components/Providers';
+import { Providers } from '@/components/utils/Providers';
+import Scripts from '@/components/utils/scripts';
 
 const inter = Nunito({
   weight: ['400', '700'],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Scripts />
         <Providers>
           <TheHeader />
           <main>{children}</main>
