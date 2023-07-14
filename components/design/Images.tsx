@@ -1,15 +1,15 @@
 'use client';
+import { CONTENT } from '@/lib/data';
 import Image from 'next/image';
 import React from 'react';
 
-type UserImage = {
-  src: string;
-  alt: string;
-};
 
-export const UserImage: React.FC<UserImage> = props => {
+
+export const UserImage = (props: UserImageProps) => {
   const { src, alt } = props;
-  const blur = '/photo-cover.svg';
+
+  const blur = CONTENT.users.card.defaultImage;
+
   const [def, setDef] = React.useState(src);
   const onError = () => setDef(blur);
   return (
@@ -22,6 +22,7 @@ export const UserImage: React.FC<UserImage> = props => {
       placeholder={'blur'}
       blurDataURL={blur}
       onError={onError}
+      loading="eager"
     />
   );
 };

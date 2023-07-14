@@ -2,12 +2,13 @@ import styles from '@/lib/styles/users.module.scss';
 import React from 'react';
 import { Card } from './Card';
 
-import dynamic from 'next/dynamic';
 import { useUsers } from '@/lib/hooks/useUsers';
+
+import dynamic from 'next/dynamic';
 const DynamicFallback = dynamic(() => import('../design/Fallback'));
 
 type CardListLayout = {
-  index?: number;
+  index: number;
 };
 
 export const CardListLayout = (props: CardListLayout) => {

@@ -5,6 +5,7 @@ const nextFetchConfig: RequestInit = {
 };
 
 export async function getUsers(page: number = 1, count: string = '6') {
+	const abort = new AbortController();
   const api_url = process.env.API_URL;
   const path = process.env.API_PATH_USERS;
   const url = api_url + path + `?page=${page}&count=${count}`;

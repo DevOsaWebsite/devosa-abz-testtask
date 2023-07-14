@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { Hero } from '@/components/Hero';
-import { CardsSection } from '@/components/Users/CardsSection';
+import { AllUsers } from '@/components/AllUsers';
+import { AddUser } from '@/components/AddUser';
 
-import { getPositions } from '@/lib/users';
-
-export default async function Home() {
-
+export default function Home() {
   return (
     <>
       <Hero />
-      <CardsSection />
+      <AllUsers />
+      <AddUser />
     </>
   );
 }
