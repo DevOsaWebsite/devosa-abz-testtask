@@ -3,7 +3,7 @@ import React from 'react';
 import { CardListLayout } from './CardListLayout';
 import { ShowMore } from '../ShowMore';
 import { useUsers } from '@/lib/hooks/useUsers';
-import { preload } from 'swr';
+import { preloadUsers } from '../utils/Providers/SWRProvider';
 
 export const CardsSection = () => {
   const [cnt, setCnt] = React.useState<number>(1);
@@ -17,6 +17,8 @@ export const CardsSection = () => {
   }
 
   const onClick = () => setCnt(cnt + 1);
+	preloadUsers(cnt + 1);
+	
   React.useEffect;
   return (
     <>

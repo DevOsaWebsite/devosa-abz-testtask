@@ -1,17 +1,10 @@
-import { url } from './constants';
-
-const fetchURL = url + `?page=1&count=6`;
+const api_url = process.env.API_URL;
+const path = process.env.API_PATH_USERS;
+const preFetchURL = api_url + path + `?page=1&count=6`;
 
 const getPrefetchUsers = async () => {
-  const res = await fetch(
-    'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1%count=6',
-    {
-      method: 'GET',
-    }
-  );
-  const data = await res.json();
-
-  return data;
+  const res = await fetch(preFetchURL);
+  return await res.json();
 };
 
 export default getPrefetchUsers;

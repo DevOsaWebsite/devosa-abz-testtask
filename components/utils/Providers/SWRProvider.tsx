@@ -1,10 +1,13 @@
 'use client';
-import { SWRConfig, unstable_serialize } from 'swr';
+import { SWRConfig, preload } from 'swr';
 interface SWRConfigProviderProps {
   children: React.ReactNode;
   users: unknown;
 }
+export const fetcher = (resource: RequestInfo | URL, init?: RequestInit) =>
+  fetch(resource, init).then(res => res.json());
 
+export const preloadUsers = (page: number) => preload(`/api/users?page=${page}`, fetcher);
 export const SWRProvider = ({ children, users }: SWRConfigProviderProps) => {
   return (
     <SWRConfig
@@ -12,7 +15,7 @@ export const SWRProvider = ({ children, users }: SWRConfigProviderProps) => {
         refreshInterval: 10000,
         revalidateOnReconnect: true,
         shouldRetryOnError: true,
-        fetcher: (resource, init) => fetch(resource, init).then(res => res.json()),
+        fetcher,
         fallback: {
           '/api/users?page=1': users,
         },
